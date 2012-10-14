@@ -107,7 +107,8 @@ function! s:BeginSnips()
   if match(l:line, l:pattern) == -1
     return
   endif
-  call feedkeys("\<esc>^\<tab>")
+  call feedkeys("\<esc>", "n")
+  call feedkeys("\<tab>")
 endfunction
 
 " vim: set ts=2 sts=2 sw=2 expandtab :
