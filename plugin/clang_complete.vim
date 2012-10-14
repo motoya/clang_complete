@@ -447,7 +447,8 @@ function! s:ClangCompleteBinary(base)
     return []
   endif
 
-  let l:filter_str = "v:val =~ '^COMPLETION: " . a:base . "\\|^OVERLOAD: '"
+  let base = (g:clang_complete_patterns == 1) ? '\(Pattern : \)\?' . a:base : a:base
+  let l:filter_str = "v:val =~ '^COMPLETION: " . base . "\\|^OVERLOAD: '"
   call filter(l:clang_output, l:filter_str)
 
   let l:res = []
